@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1647343799661-1" author="jovob (generated)">
+        <createTable tableName="note1">
+            <column name="recipe1_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_note1"/>
+            </column>
+            <column name="description" type="CLOB"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1647343799661-2" author="jovob (generated)">
+        <createTable tableName="recipe1">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_recipe1"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1647343799661-3" author="jovob (generated)">
+        <addForeignKeyConstraint baseColumnNames="recipe1_id" baseTableName="note1" constraintName="FK_NOTE1_ON_RECIPE1"
+                                 referencedColumnNames="id" referencedTableName="recipe1"/>
+    </changeSet>
+
+</databaseChangeLog>

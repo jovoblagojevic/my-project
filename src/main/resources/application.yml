@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    type: com.mysql.cj.jdbc.MysqlDataSource
+    url: jdbc:mysql://localhost:3306/my_project
+    username: root
+    password: root
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+    enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLInnoDBDialect
+    database: MYSQL
+    show_sql: true # true za prikaz sql
+    open-in-view: false
+    factory-class: org.springframework.data.envers.repository.support.EnversRevisionRepositoryFactoryBean
+    properties:
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: false
+      hibernate.show_sql: true # true za prikaz sql
+      hibernate.SQL: true # true za prikaz sql
+#logging:
+#  file: logs/dev_app.log
+#  level:
+#    com.logate.lts: INFO
+#    org.mongodb.driver.cluster: OFF
+#    org.camunda: INFO
+##    org.hibernate.type: TRACE  # true za prikaz sql sa parametrima
